@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".AlarmMainActivity">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_tutorial"
+        android:onClick="showTutorial"
+        android:orderInCategory="103"
+        android:title="@string/action_tutorial" />
+
+    <item
+        android:id="@+id/action_userhobits"
+        android:orderInCategory="103"
+        android:title="作息习惯" />
+
+
+    <item
+    android:id="@+id/action_add_alarm"
+    android:icon="@drawable/add_alarm_button"
+    android:title="@string/action_add_alarm"
+    app:showAsAction="ifRoom" />
+
+</menu>

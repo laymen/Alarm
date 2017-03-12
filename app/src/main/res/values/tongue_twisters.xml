@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tongue_twisters">
+        <item>欢迎使用</item>
+        <item>好好学习，天天向上</item>
+        <item>爸爸的爸爸是爷爷</item>
+        <item>妈妈的妈妈是奶奶</item>
+        <item>我们都是好孩子呀</item>
+        <item>你好</item>
+    </string-array>
+</resources>

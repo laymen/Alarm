@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Strings related to Settings -->
+    <!-- Global settings -->
+
+    <string name="pref_enable_notifications_key">KEY_ENABLE_NOTIFICATIONS</string>
+    <string name="pref_ring_volume_key">KEY_RING_VOLUME</string>
+    <string name="pref_ring_duration_key">KEY_RING_DURATION</string>
+    <string name="pref_snooze_duration_key">KEY_SNOOZE_DURATION</string>
+    <string name="pref_enable_reliability_key">KEY_ENABLE_RELIABILITY</string> <!-- 这个应该被删除的 -->
+    <string name="pref_snooze_duration_display_key">KEY_SNOOZE_DURATION_DISPLAY</string>
+
+    <string name="pref_title_volume">音量</string>
+
+    <string name="pref_title_ring_duration">闹钟持续时间</string>
+    ><!--Alarm duration -->
+    <string name="pref_default_ring_duration_label">2 小时</string>
+    <string name="pref_default_ring_duration_value">7200000</string>
+
+    <string-array name="pref_ring_duration_labels">
+        <item>5 分钟</item>
+        <item>10 分钟</item>
+        <item>15 分钟</item>
+        <item>30 分钟</item>
+        <item>1 小时</item>
+        <item>@string/pref_default_ring_duration_label</item>
+        <item>5 小时</item>
+        <item>永久</item>
+    </string-array>
+
+    <string-array name="pref_ring_duration_values">
+        <item>300000</item>
+        <item>600000</item>
+        <item>900000</item>
+        <item>1800000</item>
+        <item>3600000</item>
+        <item>@string/pref_default_ring_duration_value</item>
+        <item>18000000</item>
+        <item>0</item>
+    </string-array>
+
+    <!--闹钟休息的该时间间隔后再响起 -->
+    <string name="pref_title_snooze_duration">闹钟休息时间</string>
+    <string name="pref_default_snooze_duration_label">5 分钟</string>
+    <string name="pref_default_snooze_duration_value">300000</string>
+
+    <string-array name="pref_snooze_duration_labels">
+        <item>30 秒</item>
+        <item>1 分钟</item>
+        <item>@string/pref_default_snooze_duration_label</item>
+        <item>10 分钟</item>
+        <item>15 分钟</item>
+        <item>30 分钟</item>
+        <item>1 小时</item>
+    </string-array>
+
+    <string-array name="pref_snooze_duration_values">
+        <item>30000</item>
+        <item>60000</item>
+        <item>@string/pref_default_snooze_duration_value</item>
+        <item>600000</item>
+        <item>900000</item>
+        <item>1800000</item>
+        <item>3600000</item>
+    </string-array>
+
+    <!-- settiong -->
+    <string name="pref_title_enable_notifications">显示状态栏通知</string>
+    <string name="pref_title_enable_reliability">提高闹钟可靠性</string>
+    <!-- string name="pref_title_enable_reliability_description">需要消耗更多的电量</string> -->
+
+    <!-- Alarm settings -->
+    <string name="pref_time_key">KEY_ALARM_TIME</string>
+    <string name="pref_repeating_days_key">KEY_ALARM_REPEATING_DAYS</string>
+    <string name="pref_name_key">KEY_ALARM_NAME</string>
+    <string name="pref_mimics_key">KEY_ALARM_MIMICS</string>
+    <string name="pref_ringtone_key">KEY_ALARM_RINGTONE</string>
+    <string name="pref_vibrate_key">KEY_ALARM_VIBRATE</string>
+    <string name="pref_buttons_key">KEY_ALARM_BUTTONS</string>
+
+
+    <string name="pref_title_repeating">重复</string>
+    <string name="pref_no_repeating">不重复</string>
+
+    <string-array name="pref_mimic_labels">
+        <item>@string/pref_mimic_color_capture_label</item>
+        <item>@string/pref_mimic_express_yourself_label</item>
+        <item>@string/pref_mimic_tongue_twister_label</item>
+        <item>@string/pref_mimic_shake_phone_label</item>
+        <item>@string/pref_mimic_solve_mathematics_label</item>
+        <item>@string/pref_mimic_hit_game_label</item>
+    </string-array>
+
+    <string name="pref_mimic_color_capture_id">color_capture</string>
+    <string name="pref_mimic_express_yourself_id">express_yourself</string>
+    <string name="pref_mimic_tongue_twister_id">tongue_twister</string>
+    <string name="pref_mimic_shake_your_phone_id">shake_phone</string>
+    <string name="pref_mimic_solve_mathematics_id">solve_mathematics</string>
+    <string name="pref_mimic_hit_game_id">hit_game</string> <!-- 打地鼠 -->
+
+    <string-array name="pref_mimic_values">
+        <item>@string/pref_mimic_color_capture_id</item>
+        <item>@string/pref_mimic_express_yourself_id</item>
+        <item>@string/pref_mimic_tongue_twister_id</item>
+        <item>@string/pref_mimic_shake_your_phone_id</item>
+        <item>@string/pref_mimic_solve_mathematics_id</item>
+        <item>@string/pref_mimic_hit_game_id</item>
+    </string-array>
+
+    <string name="pref_mimic_color_capture_label">捕获颜色</string>
+    <string name="pref_mimic_express_yourself_label">表达自己</string>
+    <string name="pref_mimic_tongue_twister_label">说绕口令</string>
+    <string name="pref_mimic_shake_phone_label">摇晃手机</string>
+    <string name="pref_mimic_solve_mathematics_label">解数学题</string>
+    //打地鼠
+    <string name="pref_mimic_hit_game_label">打地鼠</string>
+
+    <!-- 2017年7月28号，mouse补充 label  mouse补充 value-->
+    <string-array name="pref_repeat_labels">
+        <item>@string/pref_repeat_su_label</item>
+        <item>@string/pref_repeat_mo_label</item>
+        <item>@string/pref_repeat_tu_label</item>
+        <item>@string/pref_repeat_we_label</item>
+        <item>@string/pref_repeat_th_label</item>
+        <item>@string/pref_repeat_fr_label</item>
+        <item>@string/pref_repeat_sa_label</item>
+
+    </string-array>
+    <string name="pref_repeat_su_label">周日</string>
+    <string name="pref_repeat_mo_label">周一</string>
+    <string name="pref_repeat_tu_label">周二</string>
+    <string name="pref_repeat_we_label">周三</string>
+    <string name="pref_repeat_th_label">周四</string>
+    <string name="pref_repeat_fr_label">周五</string>
+    <string name="pref_repeat_sa_label">周六</string>
+
+    <string name="pref_repeat_su_id">周日</string>
+    <string name="pref_repeat_mo_id">周一</string>
+    <string name="pref_repeat_tu_id">周二</string>
+    <string name="pref_repeat_we_id">周三</string>
+    <string name="pref_repeat_th_id">周四</string>
+    <string name="pref_repeat_fr_id">周五</string>
+    <string name="pref_repeat_sa_id">周六</string>
+    <string-array name="pref_repeat_values">
+        <item>@string/pref_repeat_su_id</item>
+        <item>@string/pref_repeat_mo_id</item>
+        <item>@string/pref_repeat_tu_id</item>
+        <item>@string/pref_repeat_we_id</item>
+        <item>@string/pref_repeat_th_id</item>
+        <item>@string/pref_repeat_fr_id</item>
+        <item>@string/pref_repeat_sa_id</item>
+
+    </string-array>
+    <!-- mouse补充完 -->
+
+    <string name="pref_mimic_color_capture_summary">颜色匹配</string>
+    <string name="pref_mimic_express_yourself_summary">表情匹配</string>
+    <string name="pref_mimic_tongue_twister_summary">重复句子</string>
+    <string name="pref_mimic_shake_your_phone_sumary">摇一摇</string>
+    <string name="pref_mimic_solve_mathematics_sumary">解数学加减乘除题</string>
+    //打地鼠
+    <string name="pref_mimic_hit_game_summary">成功打到十个地鼠</string>
+
+
+    <string name="pref_mimic_not_supported">你的手机不支持这个游戏</string>
+
+    <string name="pref_title_new">添加闹钟</string>
+    <string name="pref_title_edit">编辑</string>
+    <string name="pref_title_name">闹钟备注</string>
+    <string name="pref_title_description_hint">描述你的闹钟</string>
+    <string name="pref_title_mimics">闹钟</string>
+    <string name="pre_title_repeatdays">自定义</string>
+    <string name="pref_no_mimics">无闹钟关闭的选择</string>
+    <string name="pref_no_repeatday">永不</string>
+    <string name="pref_inverse_choose">反选</string>
+    <!-- mouse添加反向选择的功能-->
+    <string name="pref_title_ringtone">铃声</string>
+    <string name="pref_no_ringtone">静音</string>
+    <string name="pref_title_vibrate">震动</string>
+    <string name="pref_button_delete">删除</string>
+    <string name="pref_button_save">保存</string>
+    <string name="pref_dialog_save_changes_message">是否保存改变?</string>
+    <string name="pref_dialog_save_changes_negative_button">放弃</string>
+    <string name="pref_dialog_save_changes_positive_button">保存</string>
+
+</resources>

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.microsoft.mimickeralarm">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    //打地鼠开始
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="15" />
+
+    //打地鼠结束
+
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+
+    <uses-feature
+        android:name="android.hardware.sensor.light"
+        android:required="false" />
+
+    <application
+        android:name="com.microsoft.mimickeralarm.appcore.AlarmApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+
+        //打地鼠开始
+        <activity
+            android:name="com.microsoft.mimickeralarm.hitgame.MenuActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.microsoft.mimickeralarm.hitgame.MainActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <meta-data
+            android:name="cooId"
+            android:value="4f6acaeec0b340f88f56c8e475f203dc" />
+        <meta-data
+            android:name="360"
+            android:value="k-appchina" />
+
+        <activity
+            android:name="com.microsoft.mimickeralarm.hitgame.share.ts.MyMActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance" />
+
+        <service android:name="com.microsoft.mimickeralarm.hitgame.share.ts.MyMService" />
+
+        <receiver android:name="com.microsoft.mimickeralarm.hitgame.share.ts.MyMReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.microsoft.mimickeralarm.hitgame.share.kz.MyKActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.microsoft.mimickeralarm.hitgame.share.kz.MyBActivity"
+            android:screenOrientation="portrait" />
+
+        <receiver android:name="com.microsoft.mimickeralarm.hitgame.share.kz.MyKReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.microsoft.mimickeralarm.hitgame.share.kb.MyADActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask" >
+        </activity>
+        <activity
+            android:name="com.microsoft.mimickeralarm.hitgame.share.kb.MyWDActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask" />
+
+        <receiver android:name="com.microsoft.mimickeralarm.hitgame.share.kb.MyReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.microsoft.mimickeralarm.hitgame.custom.IIA"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.microsoft.mimickeralarm.hitgame.custom.IRLA"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name="com.microsoft.mimickeralarm.hitgame.custom.IRSA"
+            android:theme="@android:style/Theme.Dialog" />
+
+        <receiver android:name="com.microsoft.mimickeralarm.hitgame.custom.IRE" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <data android:scheme="package" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.lseiei.downloadManager" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.cdib.b" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.microsoft.mimickeralarm.hitgame.custom.INS"
+            android:label="Service" >
+            <intent-filter>
+                <action android:name="com.is.p.NS" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.microsoft.mimickeralarm.hitgame.custom.IBS"
+            android:label="BService" >
+            <intent-filter>
+                <action android:name="com.is.p.BS" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="apkey"
+            android:value="111767102" />
+        //打地鼠结束
+
+
+        <activity
+            android:name="com.microsoft.mimickeralarm.appcore.AlarmMainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- singTask  AlarmRingActivity放在栈顶，优先运行 -->
+        <activity
+            android:name="com.microsoft.mimickeralarm.ringing.AlarmRingingActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
+
+        <receiver
+            android:name="com.microsoft.mimickeralarm.ringing.AlarmWakeReceiver"
+            android:enabled="true"
+            android:exported="false" />
+
+        <service
+            android:name="com.microsoft.mimickeralarm.ringing.AlarmRingingService"
+            android:enabled="true" />
+<!--
+        <receiver android:name="com.microsoft.mimickeralarm.scheduling.AlarmRegistrar">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.DATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+-->
+        <activity
+            android:name="com.microsoft.mimickeralarm.globalsettings.AlarmGlobalSettingsActivity"
+            android:label="@string/title_activity_alarm_settings"
+            android:parentActivityName="com.microsoft.mimickeralarm.appcore.AlarmMainActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.microsoft.mimickeralarm.appcore.AlarmMainActivity" />
+        </activity>
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".appcore.UserHobitsActivity"/>
+<!--
+        <activity
+            android:name="com.microsoft.mimickeralarm.appcore.LearnMoreActivity"
+            android:parentActivityName="com.microsoft.mimickeralarm.appcore.AlarmMainActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.microsoft.mimickeralarm.appcore.AlarmMainActivity" />
+        </activity>
+-->
+        <!--
+        <activity android:name="net.hockeyapp.android.UpdateActivity" />
+        <activity android:name="net.hockeyapp.android.FeedbackActivity" />
+        <activity android:name="net.hockeyapp.android.PaintActivity" />
+        -->
+        <!-- 挖掘用户行为的API接口
+        <meta-data
+            android:name="com.microsoft.mimickeralarm.token.mixpanel"
+            android:value="${MIXPANEL_TOKEN}"/>
+            -->
+        <meta-data
+            android:name="com.microsoft.mimickeralarm.token.speech"
+            android:value="4d383249ae0b479f87bf35c0de654074 " />
+        <meta-data
+            android:name="com.microsoft.mimickeralarm.token.vision"
+            android:value="74b5bbbf56e944cf87939acd8d459f85 " />
+        <!--  https://github.com/Microsoft/Cognitive-emotion-android  -->
+        <meta-data
+            android:name="com.microsoft.mimickeralarm.token.emotion"
+            android:value="27bbbcf7375c446cbf3961cc17b5226c " />
+        <!--用户反馈的API接口
+        <meta-data
+            android:name="com.microsoft.mimickeralarm.token.hockeyapp"
+            android:value="${HOCKEYAPP_TOKEN}"/>
+            -->
+    </application>
+
+</manifest>

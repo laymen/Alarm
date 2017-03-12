@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="androidkb">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/androidkb.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

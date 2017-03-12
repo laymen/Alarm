@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="androidAP">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/androidAP.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

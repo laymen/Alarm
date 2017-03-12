@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="@string/pref_repeat_su_id"
+        android:title="@string/pref_repeat_su_label" />
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="@string/pref_repeat_mo_id"
+        android:title="@string/pref_repeat_mo_label" />
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="@string/pref_repeat_tu_id"
+        android:title="@string/pref_repeat_tu_label" />
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="@string/pref_repeat_we_id"
+        android:title="@string/pref_repeat_we_label" />
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="@string/pref_repeat_th_id"
+        android:title="@string/pref_repeat_th_label" />
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="@string/pref_repeat_fr_id"
+        android:title="@string/pref_repeat_fr_label" />
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="@string/pref_repeat_sa_id"
+        android:title="@string/pref_repeat_sa_label" />
+
+
+
+</PreferenceScreen>

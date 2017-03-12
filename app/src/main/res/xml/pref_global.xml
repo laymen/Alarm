@@ -1,0 +1,24 @@
+<!--Setting中的配置 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Show Notification -->
+    <SwitchPreferenceCompat
+        android:defaultValue="true"
+        android:key="@string/pref_enable_notifications_key"
+        android:title="@string/pref_title_enable_notifications" />
+    <!-- 闹钟的音量控制-->
+    <com.microsoft.mimickeralarm.globalsettings.VolumeSliderPreference android:key="@string/pref_ring_volume_key" />
+    <!-- 闹钟响起的时间间隔 -->
+    <ListPreference
+        android:defaultValue="@string/pref_default_ring_duration_value"
+        android:entries="@array/pref_ring_duration_labels"
+        android:entryValues="@array/pref_ring_duration_values"
+        android:key="@string/pref_ring_duration_key"
+        android:title="@string/pref_title_ring_duration" />
+
+    <ListPreference
+        android:defaultValue="@string/pref_default_snooze_duration_value"
+        android:entries="@array/pref_snooze_duration_labels"
+        android:entryValues="@array/pref_snooze_duration_values"
+        android:key="@string/pref_snooze_duration_key"
+        android:title="@string/pref_title_snooze_duration" />
+</PreferenceScreen>

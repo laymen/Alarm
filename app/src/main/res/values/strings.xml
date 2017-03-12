@@ -1,0 +1,98 @@
+<resources>
+    <string name="app_name">超声闹钟</string>
+    <string name="app_short_name">闹钟</string>
+    <string name="alarm_list_title">闹钟</string>
+    <string name="action_settings">设置</string>
+    <string name="action_learn_more">Learn more</string>
+    <string name="action_add_alarm">添加闹钟</string>
+    <string name="title_activity_alarm_settings">设置</string>
+    <string name="empty_alarm_list_text">你还没有定闹钟\n点击这个按钮去新建一个闹钟吧 : )</string>
+    <string name="title_activity_learn_more">Learn more</string>
+    <string name="alarm_list_weekend">周末</string>
+    <string name="alarm_list_weekdays">工作日</string>
+    <string name="alarm_list_every_day">每天</string>
+    <string name="alarm_snooze_label">休息</string>
+    <string name="alarm_no_mimics_label">没有选择闹钟的关闭方式</string><!-- No Mimics selected -->
+    <string name="alarm_no_mimics_tap_to_add">Tap to add!</string>
+
+    <string name="mimic_twister_name">语音展现</string>
+    <string name="mimic_twister_prompt">说下面的句子</string>
+    <string name="mimic_twister_i_said">我说</string>
+    <string name="mimic_twister_sharable_title">快点说这个!</string>
+
+    <string name="mimic_vision_prompt">找一些 %s</string>
+    <string name="mimic_emotion_prompt">做 %s 表情</string>
+    <string name="action_tutorial">教程</string>
+    <string name="action_user_daily_habits">起床习惯</string>
+    <string name="mimic_time_up_message">时间到了!</string>
+    <string name="mimic_failure_message">看起来不太对哦！</string>
+    <string name="mimic_success_message">你答对了!</string>
+    <string name="mimic_emotion_failure">你表现得太 %s, 再试一试</string>
+    <string name="mimic_emotion_failure_not_enough">你表现得不够 %s, 再试一试</string>
+    <string name="mimic_twister_perfect_message">完美!</string>
+
+    <string name="onboarding_tutorial_title_1">设置你的闹钟</string>
+    <string name="onboarding_tutorial_text_1">告诉我们你什么时候起床，余下的事交给我们吧：）</string>
+    <string name="onboarding_tutorial_title_2">当你听到，你得做出决定</string>
+    <string name="onboarding_tutorial_text_2">选择起床还是贪睡哟</string>
+    <string name="onboarding_tutorial_title_3">玩游戏</string>
+    <string name="onboarding_tutorial_text_3">通过玩游戏来关闭闹钟呢</string>
+    <string name="onboarding_tutorial_title_4">起床</string>
+    <string name="onboarding_tutorial_text_4">享受一个美好的早晨！</string>
+    <string name="onboarding_welcome_title">欢迎使用闹钟!</string>
+    <string name="onboarding_welcome_text">玩游戏，来清醒和起床吧</string>
+    <string name="onboarding_next">下一步</string>
+    <string name="onboarding_skip">跳过</string>
+    <string name="accept">同意</string>
+    <string name="game_nonetwork_prompt">抓住这睡着的人像!</string>
+    <string name="game_nonetwork_prompt2">继续</string>
+    <string name="game_nonetwork_prompt3">almost there</string>
+    <string name="learn_more_text">本次APP的开发使用了微软人脸识别，语音识别等API接口，我们仅仅是学习用，不会对你自身造成伤害：）</string>
+
+    <string name="share_button">分享你的闹钟</string>
+    <string name="share_action_description">Share via …</string>
+    <string name="share_text_template">I woke up this morning with Mimicker http://mimicker.ai</string>
+    <string name="share_subject_template">I woke up!</string>
+    <string name="share_download_success">Your mimic picture has been saved!</string>
+    <string name="share_download_failure">Sorry, something went wrong and we cannot save your picture</string>
+    <string name="default_ringtone_name">音乐</string>
+
+    <string name="alarm_set_day_hour_minute">闹钟将会在 {days, plural, =1{# 天} other{# 天}}, {hours, plural, =1{# 小时} other{# 小时}}, {minutes, plural, =1 {# 分钟} other {# 分钟}}响起</string>
+    <string name="alarm_set_day_hour">闹钟将会在 {days, plural, =1{# 天} other{# 天}}, {hours, plural, =1{# 小时} other{# 小时}}响起</string>
+    <string name="alarm_set_day_minute">闹钟将会在{days, plural, =1{# 天} other{# 天}}, {minutes, plural, =1 {# 分钟} other {# 分钟}}响起</string>
+    <string name="alarm_set_day">闹钟将会在 {days, plural, =1{# 天} other{# 天}}响起</string>
+    <string name="alarm_set_hour_minute">闹钟将会在 {hours, plural, =1{# 小时} other{# 小时}}, {minutes, plural, =1 {# 分钟} other {# 分钟}}响起</string>
+    <string name="alarm_set_hour">闹钟将会在 {hours, plural, =1{# 小时} other{# 小时}}</string>
+    <string name="alarm_set_minute">闹钟将会在 {minutes, plural, =1{# 分钟} other{# 分钟}}</string>
+    <string name="alarm_set_less_than_minute">闹钟将会在不到一分钟响起</string>
+
+    <string name="notification_next_alarm_content_title">Next Mimicker alarm</string>
+    <string name="notification_alarm_ringing_content_title">Mimicker alarm is ringing</string>
+    <string name="mimic_camera_too_dark">这里真的太黑暗了！</string>
+
+    <string name="mimic_error_toast">Something went wrong :( play this instead</string>
+
+
+    <!-- Please refer to http://oxford-portal.azurewebsites.net/doc/general/subscription-key-mgmt to get your subscription key -->
+    <!-- If you have one subscription key, you can add it here to use the service -->
+    <string name="primaryKey">ac8007c97f3343359e1f5fb17413042d</string>
+    <string name="add_subscription_key_tip_title">acb47ee1c5544f06b90290201426fa0b </string>
+    <string name="add_subscription_key_tip">Please put your subscription key to source file \"app/res/values/strings.xml\" to enable Face API calls.</string>
+
+    <!--
+    Enter an optional authentication Uri such as:
+    https://westus.api.cognitive.microsoft.com/sts/v1.0/issuetoken
+    -->
+    <string name="authenticationUri">https://westus.api.cognitive.microsoft.com/sts/v1.0/issuetoken</string>
+
+    <string name="luisAppID">29e051ac03b646c0938506ea56ffd06a</string>
+    <string name="luisSubscriptionID">48d87dea85f34c778b25fab67d902794 </string>
+
+    //打地鼠
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="didong_002">0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,4,5,0,0,0,0,0,0,0,6,7,8,9,10,0,0,0,0,0,0,0,11,12,13,14,15,0,0,0,0,0,0,0,16,17,18,19,20,0,0,0,0,0,0,0,21,22,23,24,25,0,0,0,0,0,0,0,26,27,28,29,30,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</string>
+    <string name="didong_001">0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,4,0,0,0,0,0,0,5,6,7,8,0,0,0,0,0,0,9,10,11,12,0,0,0,0,0,0,13,14,15,16,17,18,0,0,0,0,19,20,21,22,23,24,0,0,0,0,25,26,27,28,29,30,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</string>
+    <string name="didong_level">0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,5,0,0,0,6,0,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</string>
+
+</resources>

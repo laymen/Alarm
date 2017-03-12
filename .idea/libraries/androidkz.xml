@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="androidkz">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/androidkz.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
