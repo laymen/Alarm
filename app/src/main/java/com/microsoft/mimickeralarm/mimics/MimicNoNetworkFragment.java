@@ -78,6 +78,7 @@ public class MimicNoNetworkFragment extends Fragment {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0, 1);
         Game game = new Game(this);
         game.setLayoutParams(params);
+
         ((LinearLayout) view.findViewById(R.id.game_container)).addView(game);
         mTimer = (CountDownTimerView) view.findViewById(R.id.countdown_timer);
         mTimer.init(TIMEOUT_MILLISECONDS, new CountDownTimerView.Command() {//超时了当然游戏就失败了
@@ -178,6 +179,8 @@ public class MimicNoNetworkFragment extends Fragment {
                 mParentFragment.gameSuccess();//游戏成功了
             }
 
+             //KeyEvent.KEYCODE_BACK:
+
             return super.onTouchEvent(event);
         }
 
@@ -190,6 +193,7 @@ public class MimicNoNetworkFragment extends Fragment {
 
         @Override
         public void surfaceCreated(SurfaceHolder holder) {
+
             mGameLoop.start();
         }
 

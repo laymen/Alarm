@@ -79,10 +79,9 @@ dependencies {
     compile "com.android.support:support-v4:$SUPPORT_VERSION"
     compile "com.android.support:preference-v7:$SUPPORT_VERSION"
     compile "com.android.support:preference-v14:$SUPPORT_VERSION"
-    compile 'com.microsoft.projectoxford:speechrecognition:0.6.0'
     compile 'com.microsoft.projectoxford:speechrecognition:1.2.1'
-    compile 'com.microsoft.projectoxford:vision:0.5.0'
-    compile 'com.microsoft.projectoxford:emotion:1.0.0'
+    compile 'com.microsoft.projectoxford:vision:1.0.374'
+    compile 'com.microsoft.projectoxford:emotion:1.0.355'
     compile 'net.hockeyapp.android:HockeySDK:4.1.1'
     compile 'com.ibm.icu:icu4j:56.1'
     compile 'org.apache.commons:commons-lang3:3.4'

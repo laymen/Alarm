@@ -51,7 +51,7 @@ import com.microsoft.mimickeralarm.utilities.Loggable;
 import com.microsoft.mimickeralarm.utilities.Logger;
 import com.microsoft.mimickeralarm.utilities.KeyUtilities;
 import com.microsoft.projectoxford.vision.VisionServiceRestClient;
-import com.microsoft.projectoxford.vision.contract.AnalyzeResult;
+import com.microsoft.projectoxford.vision.contract.AnalysisResult;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -96,11 +96,23 @@ public class MimicColorCaptureFragment extends MimicWithCameraFragment {
         TextView instruction = (TextView) view.findViewById(R.id.instruction_text);
         mQuestionColorName = questions[new Random().nextInt(questions.length)];
         instruction.setText(String.format(resources.getString(R.string.mimic_vision_prompt), mQuestionColorName));
+        String label="";
+        if (mQuestionColorName.equals("红色")){
+            label="red";
+        }else if(mQuestionColorName.equals("黄色")){
+            label="yellow";
 
-        TypedArray colorCodeLower = resources.obtainTypedArray(resources.getIdentifier(mQuestionColorName + "_range_lower", "array", getActivity().getPackageName()));
+        }else if(mQuestionColorName.equals("绿色")){
+            label="green";
+
+        }else if (mQuestionColorName.equals("蓝色")){
+            label="blue";
+        }
+
+        TypedArray colorCodeLower = resources.obtainTypedArray(resources.getIdentifier(label + "_range_lower", "array", getActivity().getPackageName()));
         mQuestionColorRangeLower = new float[]{colorCodeLower.getFloat(0, 0f), colorCodeLower.getFloat(1, 0f), colorCodeLower.getFloat(2, 0f)};
         colorCodeLower.recycle();
-        TypedArray colorCodeUpper = resources.obtainTypedArray(resources.getIdentifier(mQuestionColorName + "_range_upper", "array", getActivity().getPackageName()));
+        TypedArray colorCodeUpper = resources.obtainTypedArray(resources.getIdentifier(label + "_range_upper", "array", getActivity().getPackageName()));
         mQuestionColorRangeUpper = new float[]{colorCodeUpper.getFloat(0, 0f), colorCodeUpper.getFloat(1, 0f), colorCodeUpper.getFloat(2, 0f)};
         colorCodeUpper.recycle();
 
@@ -123,7 +135,8 @@ public class MimicColorCaptureFragment extends MimicWithCameraFragment {
             String[] features = {"Color"};
             Loggable.AppAction appAction = new Loggable.AppAction(Loggable.Key.APP_API_VISION);
             Logger.trackDurationStart(appAction);
-            AnalyzeResult result = mVisionServiceRestClient.analyzeImage(inputStream, features);
+            String[] details = {};
+            AnalysisResult result = mVisionServiceRestClient.analyzeImage(inputStream, features,details);
             Logger.track(appAction);
 
             float[] accentHsl = new float[3];

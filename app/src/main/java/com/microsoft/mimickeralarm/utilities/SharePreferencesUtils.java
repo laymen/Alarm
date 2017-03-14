@@ -2,7 +2,6 @@ package com.microsoft.mimickeralarm.utilities;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.renderscript.ScriptIntrinsicConvolve3x3;
 
 /**
  * Created by mouse on 2017/3/10 0010.
@@ -42,9 +41,6 @@ public class SharePreferencesUtils {
         return preferences.getLong(key,value);
 
     }
-
-
-
 
 
 }

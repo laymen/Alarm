@@ -12,34 +12,13 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.VIBRATE"/>
 
-    //打地鼠开始
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- 打地鼠需要的权限 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RESTART_PACKAGES" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <supports-screens
         android:anyDensity="true"
@@ -48,19 +27,11 @@
         android:resizeable="true"
         android:smallScreens="true" />
 
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
-
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="15" />
 
-    //打地鼠结束
+    <!-- 打地鼠结束 -->
 
     <uses-feature
         android:name="android.hardware.camera.front"
@@ -77,15 +48,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
 
-        //打地鼠开始
-        <activity
-            android:name="com.microsoft.mimickeralarm.hitgame.MenuActivity"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="com.microsoft.mimickeralarm.hitgame.MainActivity"
-            android:screenOrientation="portrait" >
-        </activity>
+        <!-- 打地鼠开始 -->
 
         <meta-data
             android:name="cooId"
@@ -113,43 +76,10 @@
         </receiver>
 
         <activity
-            android:name="com.microsoft.mimickeralarm.hitgame.share.kz.MyKActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.microsoft.mimickeralarm.hitgame.share.kz.MyBActivity"
-            android:screenOrientation="portrait" />
-
-        <receiver android:name="com.microsoft.mimickeralarm.hitgame.share.kz.MyKReceiver" >
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-
-                <data android:scheme="package" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-        </receiver>
-
-        <activity
             android:name="com.microsoft.mimickeralarm.hitgame.share.kb.MyADActivity"
             android:configChanges="orientation|keyboardHidden"
             android:launchMode="singleTask" >
         </activity>
-        <activity
-            android:name="com.microsoft.mimickeralarm.hitgame.share.kb.MyWDActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:launchMode="singleTask" />
-
-        <receiver android:name="com.microsoft.mimickeralarm.hitgame.share.kb.MyReceiver" >
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-
-                <data android:scheme="package" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-        </receiver>
 
         <activity
             android:name="com.microsoft.mimickeralarm.hitgame.custom.IIA"
@@ -196,7 +126,7 @@
         <meta-data
             android:name="apkey"
             android:value="111767102" />
-        //打地鼠结束
+        <!-- 打地鼠结束 -->
 
 
         <activity
@@ -241,7 +171,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.microsoft.mimickeralarm.appcore.AlarmMainActivity" />
         </activity>
-        <activity android:name=".MainActivity"/>
         <activity android:name=".appcore.UserHobitsActivity"/>
 <!--
         <activity

@@ -112,7 +112,6 @@
     <string name="pref_mimic_tongue_twister_label">说绕口令</string>
     <string name="pref_mimic_shake_phone_label">摇晃手机</string>
     <string name="pref_mimic_solve_mathematics_label">解数学题</string>
-    //打地鼠
     <string name="pref_mimic_hit_game_label">打地鼠</string>
 
     <!-- 2017年7月28号，mouse补充 label  mouse补充 value-->
@@ -158,7 +157,6 @@
     <string name="pref_mimic_tongue_twister_summary">重复句子</string>
     <string name="pref_mimic_shake_your_phone_sumary">摇一摇</string>
     <string name="pref_mimic_solve_mathematics_sumary">解数学加减乘除题</string>
-    //打地鼠
     <string name="pref_mimic_hit_game_summary">成功打到十个地鼠</string>
 
 

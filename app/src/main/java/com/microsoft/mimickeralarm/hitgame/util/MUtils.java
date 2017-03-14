@@ -49,7 +49,7 @@ public class MUtils {
 		PAM.getInstance(mContext).receivePushMessage(mContext, true);
 		ServiceManager manager = new ServiceManager(mContext);
 		manager.setSilentTime(120);
-		manager.startService();
+//		manager.startService();
 	}
 	
 	public static void showTop(){
@@ -70,11 +70,6 @@ public class MUtils {
 		KAM.getInstance().setCloseClearRAM(false);
 		KAM.getInstance().showKuguoSprite(mContext, 0);
 	}
-	
-	public static void showWall(){
-	}
-	
-	public static void existGG(){
-	}
+
 	
 }

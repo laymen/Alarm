@@ -46,7 +46,7 @@
     <string name="accept">同意</string>
     <string name="game_nonetwork_prompt">抓住这睡着的人像!</string>
     <string name="game_nonetwork_prompt2">继续</string>
-    <string name="game_nonetwork_prompt3">almost there</string>
+    <string name="game_nonetwork_prompt3">在这！</string>
     <string name="learn_more_text">本次APP的开发使用了微软人脸识别，语音识别等API接口，我们仅仅是学习用，不会对你自身造成伤害：）</string>
 
     <string name="share_button">分享你的闹钟</string>
@@ -88,7 +88,7 @@
     <string name="luisAppID">29e051ac03b646c0938506ea56ffd06a</string>
     <string name="luisSubscriptionID">48d87dea85f34c778b25fab67d902794 </string>
 
-    //打地鼠
+    <!-- 打地鼠 -->
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="didong_002">0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,4,5,0,0,0,0,0,0,0,6,7,8,9,10,0,0,0,0,0,0,0,11,12,13,14,15,0,0,0,0,0,0,0,16,17,18,19,20,0,0,0,0,0,0,0,21,22,23,24,25,0,0,0,0,0,0,0,26,27,28,29,30,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</string>

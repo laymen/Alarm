@@ -220,6 +220,7 @@ public class MimicShakeYourPhoneFragment extends Fragment implements SensorEvent
                                 } else {//进度条消耗完了
                                     Log.i("mouse is laymen", "six----->" + shakeValue);
                                     gameFailure(null, false);//直接说时间完了就行了
+                                    mCallback.onMimicFailure();
                                 }
                             }
                         } catch (InterruptedException e) {

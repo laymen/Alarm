@@ -45,6 +45,7 @@ public class MimicHitGameFragment extends Fragment {
         getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);   //应用运行时，保持屏幕高亮，不锁屏
 
         init();
+        Log.i("game------2017.3.12--","))))))))))))))))))))))))))))))");
         view = inflater.inflate(R.layout.fragment_hit_game, container, false);
         btnLevel = (Button) view.findViewById(R.id.btnGameLevel);
         intent = new Intent(getActivity(), MainActivity.class);

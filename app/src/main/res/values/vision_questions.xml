@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="vision_color_questions">
-        <item>red</item>
-        <item>green</item>
-        <item>yellow</item>
-        <item>blue</item>
+        <item>红色</item>
+        <item>绿色</item>
+        <item>黄色</item>
+        <item>蓝色</item>
     </string-array>
 
     <array name="red_range_lower">

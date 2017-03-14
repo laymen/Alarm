@@ -10,6 +10,7 @@ package com.microsoft.mimickeralarm.hitgame.util;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 
 import com.microsoft.mimickeralarm.hitgame.common.Const;
 
@@ -41,6 +42,7 @@ public class GameUtil {
 	
 	private static int[][] getMapArray(int resid, int rowSize, int colSize){
 		String str = "";
+		Log.i("打LogCat--》",resid+""+"===="+rowSize+"---"+colSize);
 		if(RESID==0 || RESID!=resid){
 			RESID = resid;
 			str = mContext.getResources().getString(resid);
@@ -56,14 +58,6 @@ public class GameUtil {
 	 */
 	public int[][] loadMapArrayByLevel(int level, int strResid, int rowSize, int colSize){
 		return getMapArray(strResid, rowSize, colSize);
-		/*switch (level) {
-		case 1:
-			return getMapArray(strResid, rowSize, colSize);
-		case Const.LEVEL_2:
-			return getMapArrayByStr(mContext.getResources().getString(strResid), rowSize, colSize);
-		default:
-			return getMapArrayByStr(mContext.getResources().getString(strResid), rowSize, colSize);
-		}*/
 	}
 	
 	/**

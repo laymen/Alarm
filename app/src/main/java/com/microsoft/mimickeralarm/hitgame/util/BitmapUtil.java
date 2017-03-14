@@ -12,6 +12,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.util.DisplayMetrics;
+import android.util.Log;
 
 import com.microsoft.mimickeralarm.hitgame.common.Const;
 
@@ -51,7 +53,7 @@ public class BitmapUtil {
 		}
 		return bitmap;
 	}
-	
+
 	/**
 	 * 缩放图片
 	 * @param bitmap 要缩放的图片
@@ -59,48 +61,16 @@ public class BitmapUtil {
 	 * @return
 	 */
 	private Bitmap resizeBitmap(Bitmap bitmap, float scale){
-		/*
-		 * Bitmap BitmapOrg = bitmap;
-		int width = BitmapOrg.getWidth();
-		int height = BitmapOrg.getHeight();
-		int newWidth = w;
-		int newHeight = h;
-		float scaleWidth = ((float) newWidth) / width;
-		float scaleHeight = ((float) newHeight) / height;
-		Matrix matrix = new Matrix();
-		matrix.postScale(scaleWidth, scaleHeight);
-		Bitmap resizedBitmap = Bitmap.createBitmap(BitmapOrg, 0, 0, width, height, matrix, true);
-		return resizedBitmap;
-		 */
-		
 		//如果要缩放的比例与默认缩放比例不同则进行图片缩放
 		if(Const.DEF_SCALE!=scale){
-//			int newWidth = (int) (bitmap.getWidth()*scale);//缩放后图片的宽度
-//			int newHeight = (int) (bitmap.getHeight()*scale);//缩放后图片的高度
 			int sImgWidth = bitmap.getWidth();
 			int sImgHeight = bitmap.getHeight();
 			Matrix matrix = new Matrix();
 			matrix.postScale(Const.CURREN_WIDTH_SCALE, Const.CURREN_HEIGHT_SCALE);
 			bitmap = Bitmap.createBitmap(bitmap, 0, 0, sImgWidth, sImgHeight, matrix, true);
-//			bitmap = Bitmap.createScaledBitmap(bitmap, newWidth, newHeight, true);
 		}
-		
+
 		return bitmap;
 	}
-	
-	/**
-	 * 根据游戏关数加载游戏地图
-	 * @param level
-	 * @return
-	 */
-	public Bitmap loadGameMapByLevel(int level, int resid){
-		switch (level) {
-		case Const.LEVEL_1:
-			return getImgByResId(resid);
-		case Const.LEVEL_2:
-			return getImgByResId(resid);
-		default:
-			return getImgByResId(resid);
-		}
-	}
+
 }
