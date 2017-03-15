@@ -93,6 +93,9 @@ public final class MimicFactory {
         Log.i("see------see", (day == alarmDate) + "" + (alarmTime.getMonth() + 1 == month));
         Log.i("watch-----watch", SharePreferencesUtils.getBoolean(caller, "flag", false) + "");
         Long endMillis = AlarmScheduler.getEndTimeMillis();//今天的截止时间
+        if(time>SharePreferencesUtils.getLong(caller, "endmillis", Long.valueOf("0"))){//当前的时间大于保存在数据库里面的时间
+            SharePreferencesUtils.putBoolean(caller, "flag", false);//目的是让插入SQlite数据库中
+        }
 
         if (day == alarmDate && alarmTime.getMonth() + 1 == month) {//判断是否是当天
             if (!SharePreferencesUtils.getBoolean(caller, "flag", false)) {
@@ -140,7 +143,6 @@ public final class MimicFactory {
         }
         if (alarm.isHitGameEnabled()) {
             Log.e("LPB---------", "HitGame");
-//            mimics.add(MimicHitGameFragment.class);
             mimics.add(MimicHitMouseFragment.class);
         }
 

@@ -7,7 +7,6 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.media.AudioManager;
 import android.media.SoundPool;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -220,7 +219,6 @@ public class MimicShakeYourPhoneFragment extends Fragment implements SensorEvent
                                 } else {//进度条消耗完了
                                     Log.i("mouse is laymen", "six----->" + shakeValue);
                                     gameFailure(null, false);//直接说时间完了就行了
-                                    mCallback.onMimicFailure();
                                 }
                             }
                         } catch (InterruptedException e) {
@@ -276,6 +274,7 @@ public class MimicShakeYourPhoneFragment extends Fragment implements SensorEvent
             String failureMessage = getString(R.string.mimic_time_up_message);
             mStateManagerNormal.onMimicFailureNormal(failureMessage);
         }
+        mCallback.onMimicFailure();//2017.3.15
     }
 
     protected void gameSuccess(GameResultNormal gameResult) {
@@ -284,6 +283,7 @@ public class MimicShakeYourPhoneFragment extends Fragment implements SensorEvent
             successMessage = gameResult.message;
         }
         mStateManagerNormal.onMimicSuccessNormal(successMessage);
+        mCallback.onMimicSuccess("");
     }
 
     private static class MyHandler extends Handler {

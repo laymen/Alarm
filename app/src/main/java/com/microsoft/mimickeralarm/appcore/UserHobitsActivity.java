@@ -23,6 +23,7 @@ import org.achartengine.model.XYSeries;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 
+import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.List;
 
@@ -38,10 +39,10 @@ public class UserHobitsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_hobits_show);
-        chart= (RelativeLayout) findViewById(R.id.chart);
+        chart = (RelativeLayout) findViewById(R.id.chart);
         lineView();
 
-        Toolbar toolbar= (Toolbar) findViewById(R.id.back_up_index);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.back_up_index);
         setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +64,7 @@ public class UserHobitsActivity extends AppCompatActivity {
         //图形的显示大小  数值越小 面积越大
 //        mRenderer.setBarSpacing(0.99);
         // 上  左  下 右   图表四周的范围
-        mRenderer.setMargins(new int[] {280, 80, 30, 60});
+        mRenderer.setMargins(new int[]{280, 80, 30, 60});
         mRenderer.setXLabelsPadding(30);
         //设置图表的X轴的当前方向
         mRenderer.setOrientation(XYMultipleSeriesRenderer.Orientation.HORIZONTAL);
@@ -90,30 +91,33 @@ public class UserHobitsActivity extends AppCompatActivity {
         //将x标签栏目显示如：1,2,3,4替换为显示1月，2月，3月，4月
 //        List<String> dates=DateTimeUtilities.getSevenDayDate();
         //
-        List<Weeks> weekses= DailyList.get(this).getDaily();//获得数据
-        Log.i("mouse2017年3月12号----》",weekses.size()+"");
-        for(int i=0;i<weekses.size();i++){
-            Log.i("mouse2017年3月12号1----》",weekses.get(i).getmMonthDay());
-            Long time= Long.parseLong(weekses.get(i).getmMonthDay());
-            Log.i("mouse2017年3月12号2----》",time+"");
+        List<Weeks> weekses = DailyList.get(this).getDaily();//获得数据
+        Log.i("mouse2017年3月12号----》", weekses.size() + "");
+        for (int i = 0; i < weekses.size(); i++) {
+            Log.i("mouse2017年3月12号1----》", weekses.get(i).getmMonthDay());
+            Long time = Long.parseLong(weekses.get(i).getmMonthDay());
+            Log.i("mouse2017年3月12号2----》", time + "");
             Calendar calendarAlarm = Calendar.getInstance();
             calendarAlarm.setTimeInMillis(time);//是按秒来计算的
             //把月份取出来，把天取出来
-            if (i==0){//取出月份和天，如03月5日
+            String x = "";
+            int hour = calendarAlarm.getTime().getHours();
+            int minute = calendarAlarm.getTime().getMinutes();
+            String str = "0." + String.valueOf(minute);//拼接
+            double y = hour + Double.parseDouble(str);
+            BigDecimal b = new BigDecimal(y);
+            y = b.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+            if (i == 0) {//取出月份和天，如03月5日
                 SimpleDateFormat format1 = new SimpleDateFormat("MM月dd日");
-                String x=format1.format(calendarAlarm.getTime());
-                Log.i("mouse2017年3月12号x----》",x);
-                int y=calendarAlarm.getTime().getHours();
-                Log.i("mouse2017年3月12号y----》",y+"");
-                mRenderer.addXTextLabel(i, x);//x轴
-                series.add(i, y);//y轴
-            }else{//其他的只需要取出天就行了
+                x = format1.format(calendarAlarm.getTime());
+                Log.i("mouse2017年3月12号x----》", x);
+
+            } else {//其他的只需要取出天就行了
                 SimpleDateFormat format2 = new SimpleDateFormat("dd");
-                String x=format2.format(calendarAlarm.getTime());
-                int y=calendarAlarm.getTime().getHours();
-                mRenderer.addXTextLabel(i, x);//x轴
-                series.add(i, y);//y轴
+                x = format2.format(calendarAlarm.getTime());
             }
+            mRenderer.addXTextLabel(i, x);//x轴
+            series.add(i, y);//y轴
         }
         mDataset.addSeries(series);
         //设置只显示如1月，2月等替换后的东西，不显示1,2,3等
@@ -122,7 +126,7 @@ public class UserHobitsActivity extends AppCompatActivity {
         mRenderer.setExternalZoomEnabled(true);
         //设置滑动,这边是横向可以滑动,竖向不可滑动
         mRenderer.setPanEnabled(false, false);
-        mRenderer.setPanLimits(new double[] {-1,0});
+        mRenderer.setPanLimits(new double[]{-1, 0});
         //设置标签的间距
         mRenderer.setYLabelsPadding(10);
         //设置标签倾斜度
@@ -151,7 +155,7 @@ public class UserHobitsActivity extends AppCompatActivity {
         //是否填充折线图的下方
         r.setFillBelowLine(true);
         //填充的颜色，如果不设置就默认与线的颜色一致
-        r.setFillBelowLineColor(Color.argb(20,200,200,200));
+        r.setFillBelowLineColor(Color.argb(20, 200, 200, 200));
         mRenderer.addSeriesRenderer(r);
         //getLineChartView()：生成一个View，用户可以自行设置它的显示。
         GraphicalView view = ChartFactory.getLineChartView(this, mDataset, mRenderer);
