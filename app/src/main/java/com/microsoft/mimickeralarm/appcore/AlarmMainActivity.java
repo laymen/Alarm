@@ -141,33 +141,7 @@ public class AlarmMainActivity extends AppCompatActivity
         if (alarmId != null) {
             showAlarmSettingsFragment(alarmId.toString());//如果该闹钟存在，那么它可以跳转到SettingFragment中
         }
-        //背景图片变化(从当前开始，每隔59分钟刷新以一次)
-        /*Timer timer = new Timer(true);
-        TimerTask timerTask = new TimerTask() {
-            @Override
-            public void run() {
-                FrameLayout frameLayout = (FrameLayout) findViewById(R.id.fragment_container);
-                Time t=new Time(); // or Time t=new Time("GMT+8"); 加上Time Zone资料。
-                t.setToNow(); // 取得系统时间。
-                int time=t.hour;
-                Log.e("---------msg", time + "");
-                if(time>=5&&time<=10){
-                    frameLayout.setBackgroundResource(R.drawable.morning);
-                }
-                else if(time>10&&time<=16){
-                    frameLayout.setBackgroundResource(R.drawable.noon);
 
-                }
-                else if(time>16&&time<=20){
-                    frameLayout.setBackgroundResource(R.drawable.aftrtnoon);
-                }
-                else if(time>20){
-                    frameLayout.setBackgroundResource(R.drawable.night);
-                }
-            }
-        };
-
-        timer.schedule(timerTask,0,3540000);*/
 
         Logger.init(this);
     }
@@ -190,6 +164,18 @@ public class AlarmMainActivity extends AppCompatActivity
     @Override
     protected void onResume() {
         super.onResume();
+
+        //背景图变化
+        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.fragment_container);
+        Time t = new Time(); // or Time t=new Time("GMT+8"); 加上Time Zone资料。
+        t.setToNow(); // 取得系统时间。
+        int time = t.hour;
+        if (time >= 5 && time <= 20) {
+            frameLayout.setBackgroundResource(R.color.dark);
+        } else if (time > 20) {
+            frameLayout.setBackgroundResource(R.color.green1);
+        }
+
         GeneralUtilities.registerCrashReport(this);//广播接收器
         if (mPreferences.getBoolean(SHOULD_ONBOARD, true)) {//来自SharedPreferences数据库
             if (!hasOnboardingStarted()) {
@@ -327,6 +313,7 @@ public class AlarmMainActivity extends AppCompatActivity
 
     /**
      * mouse add
+     *
      * @param enabledRepeatDay
      */
     @Override
@@ -336,8 +323,8 @@ public class AlarmMainActivity extends AppCompatActivity
         if (settingsFragment != null) {
             settingsFragment.updateRepeatDaysPreference(enabledRepeatDay);
         }
-        for(int i=0;i<enabledRepeatDay.size();i++){
-            Log.i("AMainActivityRepday->",enabledRepeatDay.get(i));
+        for (int i = 0; i < enabledRepeatDay.size(); i++) {
+            Log.i("AMainActivityRepday->", enabledRepeatDay.get(i));
 
         }
     }
@@ -349,6 +336,7 @@ public class AlarmMainActivity extends AppCompatActivity
 
     /**
      * 把RepeatDay里面选择中天提交出去
+     *
      * @param enableRepeatDay
      */
     @Override

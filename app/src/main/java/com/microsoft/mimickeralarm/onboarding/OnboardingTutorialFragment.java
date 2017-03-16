@@ -141,7 +141,7 @@ public class OnboardingTutorialFragment extends Fragment {
 
         @Override
         public int getCount() {
-            return 4;
+            return 5;
         }
     }
 
@@ -174,16 +174,22 @@ public class OnboardingTutorialFragment extends Fragment {
                     textResId = R.string.onboarding_tutorial_text_3;
                     break;
                 case 3:
+                    imageResId=R.drawable.onboarding_tutorial_7;
+                    titleResId=R.string.onboarding_tutorial_title_7;
+                    textResId=R.string.onboarding_tutorial_text_7;
+                    break;
+                case 4:
                     imageResId = R.drawable.onboarding_tutorial_4;
                     titleResId = R.string.onboarding_tutorial_title_4;
                     textResId = R.string.onboarding_tutorial_text_4;
                     break;
+
             }
 
             ((ImageView) rootView.findViewById(R.id.onboarding_image)).setImageResource(imageResId);
             ((TextView) rootView.findViewById(android.R.id.text1)).setText(titleResId);
             ((TextView) rootView.findViewById(android.R.id.text2)).setText(textResId);
-            if (args.getInt(POSITION) == 3){
+            if (args.getInt(POSITION) == 4){
                 View nextButton = rootView.findViewById(android.R.id.button1);
                 nextButton.setVisibility(View.VISIBLE);
                 nextButton.setOnClickListener(new View.OnClickListener() {

@@ -13,7 +13,7 @@
     <string name="alarm_list_every_day">每天</string>
     <string name="alarm_snooze_label">休息</string>
     <string name="alarm_no_mimics_label">没有选择闹钟的关闭方式</string><!-- No Mimics selected -->
-    <string name="alarm_no_mimics_tap_to_add">Tap to add!</string>
+    <string name="alarm_no_mimics_tap_to_add">点我去添加!</string>
 
     <string name="mimic_twister_name">语音展现</string>
     <string name="mimic_twister_prompt">说下面的句子</string>
@@ -37,6 +37,8 @@
     <string name="onboarding_tutorial_text_2">选择起床还是贪睡哟</string>
     <string name="onboarding_tutorial_title_3">玩游戏</string>
     <string name="onboarding_tutorial_text_3">通过玩游戏来关闭闹钟呢</string>
+    <string name="onboarding_tutorial_title_7">起床习惯</string>
+    <string name="onboarding_tutorial_text_7">在这里,记录你七天的起床时间哈：）</string>
     <string name="onboarding_tutorial_title_4">起床</string>
     <string name="onboarding_tutorial_text_4">享受一个美好的早晨！</string>
     <string name="onboarding_welcome_title">欢迎使用闹钟!</string>
@@ -44,17 +46,17 @@
     <string name="onboarding_next">下一步</string>
     <string name="onboarding_skip">跳过</string>
     <string name="accept">同意</string>
-    <string name="game_nonetwork_prompt">抓住这睡着的人像!</string>
+    <string name="game_nonetwork_prompt">抓住这图!</string>
     <string name="game_nonetwork_prompt2">继续</string>
     <string name="game_nonetwork_prompt3">在这！</string>
     <string name="learn_more_text">本次APP的开发使用了微软人脸识别，语音识别等API接口，我们仅仅是学习用，不会对你自身造成伤害：）</string>
 
     <string name="share_button">分享你的闹钟</string>
     <string name="share_action_description">Share via …</string>
-    <string name="share_text_template">I woke up this morning with Mimicker http://mimicker.ai</string>
-    <string name="share_subject_template">I woke up!</string>
-    <string name="share_download_success">Your mimic picture has been saved!</string>
-    <string name="share_download_failure">Sorry, something went wrong and we cannot save your picture</string>
+    <string name="share_text_template">我起床是通过这个app哦</string>
+    <string name="share_subject_template">我起床了!</string>
+    <string name="share_download_success">你的图片已经保存了</string>
+    <string name="share_download_failure">抱歉, 出问题了，我们无法保存您的图片</string>
     <string name="default_ringtone_name">音乐</string>
 
     <string name="alarm_set_day_hour_minute">闹钟将会在 {days, plural, =1{# 天} other{# 天}}, {hours, plural, =1{# 小时} other{# 小时}}, {minutes, plural, =1 {# 分钟} other {# 分钟}}响起</string>
@@ -66,11 +68,11 @@
     <string name="alarm_set_minute">闹钟将会在 {minutes, plural, =1{# 分钟} other{# 分钟}}</string>
     <string name="alarm_set_less_than_minute">闹钟将会在不到一分钟响起</string>
 
-    <string name="notification_next_alarm_content_title">Next Mimicker alarm</string>
-    <string name="notification_alarm_ringing_content_title">Mimicker alarm is ringing</string>
+    <string name="notification_next_alarm_content_title">下一个闹钟</string>
+    <string name="notification_alarm_ringing_content_title">闹钟响了</string>
     <string name="mimic_camera_too_dark">这里真的太黑暗了！</string>
 
-    <string name="mimic_error_toast">Something went wrong :( play this instead</string>
+    <string name="mimic_error_toast">出问题了 :( 重新再来一次吧</string>
 
 
     <!-- Please refer to http://oxford-portal.azurewebsites.net/doc/general/subscription-key-mgmt to get your subscription key -->

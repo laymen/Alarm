@@ -12,7 +12,7 @@
 
     <string name="pref_title_volume">音量</string>
 
-    <string name="pref_title_ring_duration">闹钟持续时间</string>
+    <string name="pref_title_ring_duration">闹钟持续鸣叫时间</string>
     ><!--Alarm duration -->
     <string name="pref_default_ring_duration_label">2 小时</string>
     <string name="pref_default_ring_duration_value">7200000</string>
@@ -40,7 +40,7 @@
     </string-array>
 
     <!--闹钟休息的该时间间隔后再响起 -->
-    <string name="pref_title_snooze_duration">闹钟休息时间</string>
+    <string name="pref_title_snooze_duration">用户贪睡时间</string>
     <string name="pref_default_snooze_duration_label">5 分钟</string>
     <string name="pref_default_snooze_duration_value">300000</string>
 
@@ -154,9 +154,9 @@
 
     <string name="pref_mimic_color_capture_summary">颜色匹配</string>
     <string name="pref_mimic_express_yourself_summary">表情匹配</string>
-    <string name="pref_mimic_tongue_twister_summary">重复句子</string>
+    <string name="pref_mimic_tongue_twister_summary">请说句子</string>
     <string name="pref_mimic_shake_your_phone_sumary">摇一摇</string>
-    <string name="pref_mimic_solve_mathematics_sumary">解数学加减乘除题</string>
+    <string name="pref_mimic_solve_mathematics_sumary">解数学加减乘题</string>
     <string name="pref_mimic_hit_game_summary">成功打到十个地鼠</string>
 
 

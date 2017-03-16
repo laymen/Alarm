@@ -37,7 +37,6 @@ package com.microsoft.mimickeralarm.mimics;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v4.app.Fragment;
@@ -49,7 +48,6 @@ import com.microsoft.mimickeralarm.model.AlarmList;
 import com.microsoft.mimickeralarm.model.DailyList;
 import com.microsoft.mimickeralarm.model.Weeks;
 import com.microsoft.mimickeralarm.scheduling.AlarmScheduler;
-import com.microsoft.mimickeralarm.utilities.DateTimeUtilities;
 import com.microsoft.mimickeralarm.utilities.Logger;
 import com.microsoft.mimickeralarm.utilities.SharePreferencesUtils;
 
@@ -142,7 +140,6 @@ public final class MimicFactory {
             mimics.add(MimicSolveMathFragment.class);
         }
         if (alarm.isHitGameEnabled()) {
-            Log.e("LPB---------", "HitGame");
             mimics.add(MimicHitMouseFragment.class);
         }
 

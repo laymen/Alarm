@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="tos">本次实训组员由3人组成。齐凡，李平伯，陈玉红。欢迎大家提供宝贵的意见</string>
+    <string name="tos">本次实训组员由3人组成。齐凡，李平伯，陈玉红。欢迎大家提供宝贵的意见：）</string>
     <string name="tos_one_last_thing">最后一点</string>
     <string name="tos_prompt_title">写在后面的事</string>
-    <string name="tos_prompt_text">我们需要你的同意，让我们每天早上叫醒你. 接下来中，你会看到，你需要接受我们的规则才能使用这个APP哦</string>
+    <string name="tos_prompt_text">我们需要你的允许，让我们每天早上可以叫醒你哦：）.当然，在接下来的使用中，您会看到，您需要接受我们的规则,比如说，我们需要您的同意才能调用您的手机的摄像头，才能完成此APP的功能。最后祝大家，玩得愉快！</string>
     <string name="tos_prompt_confirm">知道了</string>
     <string name="tos_title">我们怎样使用你们的数据</string>
     <string name="tos_prompt_ohoh">写在后面的事</string>

@@ -178,7 +178,12 @@ public class MimicShakeYourPhoneFragment extends Fragment implements SensorEvent
         final GameResultNormal gameResultNormal = new GameResultNormal();
         Log.i("mouse is laymen", "first----->" + shakeValue);
         if (type == Sensor.TYPE_ACCELEROMETER) {//加速度感应检测
-            if (shakeValue - 2000 > 0 && !isShake) {
+            if (shakeValue - 5000 > 0 && !isShake) {
+
+                gameResultNormal.success = true;
+                gameResultNormal.message = "闯关成功";
+                gameSuccess(gameResultNormal);//闯关成功
+
                 isShake = true;
                 // TODO: 2016/10/19 实现摇动逻辑, 摇动后进行震动
                 Thread thread = new Thread() {
@@ -291,7 +296,7 @@ public class MimicShakeYourPhoneFragment extends Fragment implements SensorEvent
         private MimicShakeYourPhoneFragment mActivity;
 
         public MyHandler(MimicShakeYourPhoneFragment activity) {
-            mReference = new WeakReference<MimicShakeYourPhoneFragment>(activity);
+            mReference = new WeakReference<>(activity);
             if (mReference != null) {
                 mActivity = mReference.get();
             }

@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#11B7F5</color>
-    <color name="colorPrimaryDark">#11B7F5</color>
-    <color name="colorAccent">#11B7F5</color><!-- #aecfdc -->
+    <color name="colorPrimary">#2bbbad</color>
+    <color name="colorPrimaryDark">#2bbbad</color>
+    <color name="colorAccent">#2bbbad</color>
     <color name="yellow">#FFD700</color>
     <color name="orange">#FFA500</color>
     <color name="red">#F44336</color>
-    <color name="blue">#3F51B5</color>
+    <color name="blue">#239C8D</color>
     <color name="grey">#707070</color>
     <color name="white">#ffffff</color>
 
-    <color name="yellow1">#FFAECFDC</color>
-    <color name="yellow2">#11B7F5</color>
-    <color name="yellow3">#FF6BB6D3</color>
-    <color name="yellow4">#FF1186F4</color>
+    <color name="yellow1">#74C5BC</color>
+    <color name="yellow2">#20998A</color>
+    <color name="yellow3">#157665</color>
+    <color name="yellow4">#0B4B3A</color>
 
     <color name="green1">#afdbd6</color>z
     <color name="green2">#73c9bb</color>
     <color name="green3">#009788</color>
+    <color name="dark">#d7d2d2</color>
     <color name="dark1">#f1f1f1</color>
     <color name="dark2">#d1d2d3</color>
     <color name="dark3">#6c6c6c</color>
@@ -26,7 +27,7 @@
     <color name="invisible">#00ffffff</color>
     <color name="material_grey">#fafafa</color>
 
-    //打地鼠
     <color name="bgColor">#85B13F</color>
     <color name="fontColor">#F5FC11</color>
+    <color name="dd">#2bbbad</color>
 </resources>

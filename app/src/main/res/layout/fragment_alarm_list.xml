@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
         android:src="@drawable/add_button"
-        app:backgroundTint="#0099CC"
+        app:backgroundTint="@color/blue"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end" />
 

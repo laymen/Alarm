@@ -89,8 +89,7 @@ public class UserHobitsActivity extends AppCompatActivity {
         //显示网格
         mRenderer.setShowGrid(true);
         //将x标签栏目显示如：1,2,3,4替换为显示1月，2月，3月，4月
-//        List<String> dates=DateTimeUtilities.getSevenDayDate();
-        //
+
         List<Weeks> weekses = DailyList.get(this).getDaily();//获得数据
         Log.i("mouse2017年3月12号----》", weekses.size() + "");
         for (int i = 0; i < weekses.size(); i++) {
@@ -123,9 +122,11 @@ public class UserHobitsActivity extends AppCompatActivity {
         //设置只显示如1月，2月等替换后的东西，不显示1,2,3等
         mRenderer.setXLabels(0);
         //设置是否可以缩放
-        mRenderer.setExternalZoomEnabled(true);
+        mRenderer.setExternalZoomEnabled(false);
+        mRenderer.setZoomButtonsVisible(false);
         //设置滑动,这边是横向可以滑动,竖向不可滑动
         mRenderer.setPanEnabled(false, false);
+        mRenderer.setPanEnabled(false);
         mRenderer.setPanLimits(new double[]{-1, 0});
         //设置标签的间距
         mRenderer.setYLabelsPadding(10);
@@ -139,7 +140,7 @@ public class UserHobitsActivity extends AppCompatActivity {
         //(类似于一条线对象)
         XYSeriesRenderer r = new XYSeriesRenderer();
         //设置颜色
-        r.setColor(Color.BLUE);
+        r.setColor(R.color.blue);
         //设置点的样式
         r.setPointStyle(PointStyle.SQUARE);
         //填充点（显示的点是空心还是实心）
@@ -148,6 +149,7 @@ public class UserHobitsActivity extends AppCompatActivity {
         r.setDisplayChartValues(true);
         //显示的点的值与图的距离
         r.setChartValuesSpacing(15);
+        r.setChartValuesTextAlign(Paint.Align.LEFT);
         //点的值的文字大小
         r.setChartValuesTextSize(40);
         //设置线宽
@@ -160,7 +162,7 @@ public class UserHobitsActivity extends AppCompatActivity {
         //getLineChartView()：生成一个View，用户可以自行设置它的显示。
         GraphicalView view = ChartFactory.getLineChartView(this, mDataset, mRenderer);
         //设置view的背景
-        view.setBackgroundResource(R.drawable.timg1);
+        view.setBackgroundResource(R.color.green1);//R.drawable.timg1
         chart.addView(view);
         view.repaint();
     }

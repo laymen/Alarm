@@ -15,7 +15,10 @@
         app:navigationContentDescription="@string/abc_action_bar_up_description"
         app:navigationIcon="?attr/homeAsUpIndicator"
         app:title="作息习惯" />
-
+<View
+    android:layout_width="match_parent"
+    android:background="@color/dark"
+    android:layout_height="0.5dp"/>
     <RelativeLayout
         android:id="@+id/chart"
         android:layout_width="match_parent"

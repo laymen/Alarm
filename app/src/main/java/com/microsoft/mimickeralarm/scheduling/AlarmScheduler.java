@@ -105,6 +105,18 @@ public final class AlarmScheduler {
         }
     }
 
+    /**
+     * 获得当前的时间
+     * @return
+     */
+    public static void getCurrentTimeMillis(){
+
+    }
+
+    /**
+     * 获得今天的截止时间
+     * @return
+     */
     public static Long getEndTimeMillis() {
         //每天的闹钟的截止时间
         Calendar calendar1 = Calendar.getInstance();
@@ -119,6 +131,12 @@ public final class AlarmScheduler {
         return calendar1.getTimeInMillis();
     }
 
+    /**
+     * 获得预定闹钟的时间
+     * @param calendarFrom
+     * @param alarm
+     * @return
+     */
     public static Long getStartTimeMillis(Calendar calendarFrom, Alarm alarm) {
         //每天的闹钟响起的开始时间
         Calendar calendarAlarm = Calendar.getInstance();
