@@ -122,11 +122,6 @@ public class AlarmList {
             cursor.moveToNext();
         }
         cursor.close();
-//        for(int i=0;i<alarms.size();i++){
-//            Log.i("2017年3月9号----->",alarms.get(i).getTimeHour()+":"+alarms.get(i).getTimeMinute()+"--"+alarms.get(i).getDateStr());
-//        }
-
-
         return alarms;
     }
 

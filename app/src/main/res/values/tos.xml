@@ -5,7 +5,7 @@
     <string name="tos_prompt_title">写在后面的事</string>
     <string name="tos_prompt_text">我们需要你的允许，让我们每天早上可以叫醒你哦：）.当然，在接下来的使用中，您会看到，您需要接受我们的规则,比如说，我们需要您的同意才能调用您的手机的摄像头，才能完成此APP的功能。最后祝大家，玩得愉快！</string>
     <string name="tos_prompt_confirm">知道了</string>
-    <string name="tos_title">我们怎样使用你们的数据</string>
+    <string name="tos_title">说明</string>
     <string name="tos_prompt_ohoh">写在后面的事</string>
-    <string name="tos_prompt_reconfirm">Go now</string>
+    <string name="tos_prompt_reconfirm">同意</string>
 </resources>

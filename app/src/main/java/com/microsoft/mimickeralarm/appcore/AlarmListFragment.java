@@ -65,6 +65,7 @@ import com.microsoft.mimickeralarm.model.AlarmList;
 import com.microsoft.mimickeralarm.utilities.DateTimeUtilities;
 import com.microsoft.mimickeralarm.utilities.Loggable;
 import com.microsoft.mimickeralarm.utilities.Logger;
+import com.microsoft.mimickeralarm.utilities.SharePreferencesUtils;
 
 import org.apache.commons.lang3.ArrayUtils;
 
@@ -109,6 +110,7 @@ public class AlarmListFragment extends Fragment implements
     private AppBarLayout mAppBarLayout;
     private AlarmListListener mCallbacks;
     private boolean mShowAddButtonInToolbar;
+    private Toolbar toolbar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -126,6 +128,7 @@ public class AlarmListFragment extends Fragment implements
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_alarm_list, container, false);
 
         mAlarmRecyclerView = (RecyclerView) view
@@ -133,10 +136,11 @@ public class AlarmListFragment extends Fragment implements
         mAlarmRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),
                 DividerItemDecoration.VERTICAL_LIST));
 
-        Toolbar toolbar = (Toolbar) view
+        toolbar = (Toolbar) view
                 .findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.alarm_list_title);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+
 
         AlarmFloatingActionButton fab = (AlarmFloatingActionButton) view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -160,9 +164,9 @@ public class AlarmListFragment extends Fragment implements
         ItemTouchHelper.Callback callback = new AlarmListItemTouchHelperCallback(mAdapter);
         ItemTouchHelper touchHelper = new ItemTouchHelper(callback);
         touchHelper.attachToRecyclerView(mAlarmRecyclerView);
-
         return view;
     }
+
 
     @Override
     public void onResume() {
@@ -197,6 +201,8 @@ public class AlarmListFragment extends Fragment implements
         inflater.inflate(R.menu.menu_alarm_list, menu);
         MenuItem add = menu.findItem(R.id.action_add_alarm);
         add.setVisible(mShowAddButtonInToolbar);
+        MenuItem change=menu.findItem(R.id.action_face);
+        change.setTitle(SharePreferencesUtils.getString(getActivity(), "theme", "白天模式"));
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -208,20 +214,25 @@ public class AlarmListFragment extends Fragment implements
             return true;
         } else if (id == R.id.action_add_alarm) {
             addAlarm();
-        }
-        else if(id == R.id.action_userhobits){
-            //在这里进行页面跳转，来显示折线图
-            launchUserHobitsActivity(UserHobitsActivity.class);
+        } else if (id == R.id.action_userhobits) {
+            // 在这里进行页面跳转，来显示折线图
+            launchChildActivity(UserHobitsActivity.class);
+            return true;
+        } else if (id == R.id.action_face) {//白天模式 +夜间模式
+            if (SharePreferencesUtils.getString(getActivity(), "theme", "白天模式").equals("白天模式")) {//白天模式
+                SharePreferencesUtils.putInt(getActivity(), "ThemeId", 0);
+                SharePreferencesUtils.putString(getActivity(), "theme", "夜间模式");
+                item.setTitle(SharePreferencesUtils.getString(getActivity(), "theme", "夜间模式"));//用户点完后设置成夜间模式--是给用户看的
+            } else {//如果是夜间
+                SharePreferencesUtils.putInt(getActivity(), "ThemeId", 1);
+                SharePreferencesUtils.putString(getActivity(), "theme", "白天模式");
+                item.setTitle(SharePreferencesUtils.getString(getActivity(), "theme", "白天模式"));//用户点完后设置成夜间模式
+            }
+            launchChildActivity(AlarmMainActivity.class);
+            getActivity().finish();
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    //user_hobits的处理方法
-    private void launchUserHobitsActivity(Class childClass) {
-        Intent intent = new Intent(getActivity(), childClass);
-        startActivity(intent);
-        getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     public void updateUI() {
@@ -250,11 +261,6 @@ public class AlarmListFragment extends Fragment implements
     private void addAlarm() {
         Alarm alarm = new Alarm();
         alarm.setNew(true);//造一个新的闹钟
-        //插入月份和日子
-//        Date d = new Date();
-//        SimpleDateFormat df = new SimpleDateFormat("MM|dd");
-//        System.out.println("今天的日期：" + df.format(d));
-//        alarm.setDateStr(df.format(d)+"");
         AlarmList.get(getActivity()).addAlarm(alarm);
         mCallbacks.onAlarmSelected(alarm);//给AlarmMainActivty去处理
     }

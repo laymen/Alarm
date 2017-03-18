@@ -9,6 +9,7 @@
     <string name="pref_snooze_duration_key">KEY_SNOOZE_DURATION</string>
     <string name="pref_enable_reliability_key">KEY_ENABLE_RELIABILITY</string> <!-- 这个应该被删除的 -->
     <string name="pref_snooze_duration_display_key">KEY_SNOOZE_DURATION_DISPLAY</string>
+    <string name="pref_face_key">KEY_FACE</string>
 
     <string name="pref_title_volume">音量</string>
 
@@ -62,6 +63,19 @@
         <item>900000</item>
         <item>1800000</item>
         <item>3600000</item>
+    </string-array>
+
+    <string name="pref_title_face">皮肤</string>
+    <string name="pref_defalt_face_label">白天模式</string>
+    <string name="pref_defalt_face_value">0</string>
+    <string-array name="pref_face_choose_labels">
+        <item>@string/pref_defalt_face_label</item>
+        <item>夜间模式</item>
+    </string-array>
+
+    <string-array name="pref_face_choose_values">
+        <item>@string/pref_defalt_face_value</item>
+        <item>1</item>
     </string-array>
 
     <!-- settiong -->

@@ -43,12 +43,14 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
+import android.support.v7.view.menu.MenuBuilder;
 import android.text.format.Time;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import com.microsoft.mimickeralarm.R;
 import com.microsoft.mimickeralarm.model.Alarm;
@@ -63,12 +65,12 @@ import com.microsoft.mimickeralarm.utilities.GeneralUtilities;
 import com.microsoft.mimickeralarm.utilities.Loggable;
 import com.microsoft.mimickeralarm.utilities.Logger;
 import com.microsoft.mimickeralarm.utilities.SettingsUtilities;
+import com.microsoft.mimickeralarm.utilities.SharePreferencesUtils;
 
 import net.hockeyapp.android.FeedbackManager;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.UUID;
 
 /**
@@ -120,7 +122,7 @@ public class AlarmMainActivity extends AppCompatActivity
     private SharedPreferences mPreferences = null;
     private AudioManager mAudioManager;//音频管理器
     //记录按返回键的时间
-    private long downTime = 0;
+    //private long downTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -167,13 +169,11 @@ public class AlarmMainActivity extends AppCompatActivity
 
         //背景图变化
         FrameLayout frameLayout = (FrameLayout) findViewById(R.id.fragment_container);
-        Time t = new Time(); // or Time t=new Time("GMT+8"); 加上Time Zone资料。
-        t.setToNow(); // 取得系统时间。
-        int time = t.hour;
-        if (time >= 5 && time <= 20) {
+        if (SharePreferencesUtils.getInt(this,"ThemeId",0)==0) {
             frameLayout.setBackgroundResource(R.color.dark);
-        } else if (time > 20) {
+        } else if (SharePreferencesUtils.getInt(this,"ThemeId",0)==1) {
             frameLayout.setBackgroundResource(R.color.green1);
+
         }
 
         GeneralUtilities.registerCrashReport(this);//广播接收器
@@ -191,6 +191,8 @@ public class AlarmMainActivity extends AppCompatActivity
                     new AlarmListFragment(),
                     AlarmListFragment.ALARM_LIST_FRAGMENT_TAG);
         }
+
+      //  onCreate(null);
     }
 
     @Override
@@ -205,6 +207,11 @@ public class AlarmMainActivity extends AppCompatActivity
         Logger.flush();
     }
 
+    /**
+     * 引导页
+     *
+     * @param item
+     */
     public void showTutorial(MenuItem item) {
         if (item != null) {
             GeneralUtilities.showFragmentFromLeft(getSupportFragmentManager(),
@@ -323,10 +330,10 @@ public class AlarmMainActivity extends AppCompatActivity
         if (settingsFragment != null) {
             settingsFragment.updateRepeatDaysPreference(enabledRepeatDay);
         }
-        for (int i = 0; i < enabledRepeatDay.size(); i++) {
-            Log.i("AMainActivityRepday->", enabledRepeatDay.get(i));
-
-        }
+//        for (int i = 0; i < enabledRepeatDay.size(); i++) {
+//            Log.i("AMainActivityRepday->", enabledRepeatDay.get(i));
+//
+//        }
     }
 
     @Override
@@ -379,6 +386,28 @@ public class AlarmMainActivity extends AppCompatActivity
 
     private void showAlarmSettingsFragment(String alarmId) {
         SettingsUtilities.transitionFromAlarmListToSettings(getSupportFragmentManager(), alarmId);
+    }
+
+    /**
+     * 通过反射，设置menu显示icon
+     *
+     * @param view
+     * @param menu
+     * @return
+     */
+    @Override
+    protected boolean onPrepareOptionsPanel(View view, Menu menu) {
+        if (menu != null) {
+            if (menu.getClass() == MenuBuilder.class) {
+                try {
+                    Method m = menu.getClass().getDeclaredMethod("setOptionalIconsVisible", Boolean.TYPE);
+                    m.setAccessible(true);
+                    m.invoke(menu, true);
+                } catch (Exception e) {
+                }
+            }
+        }
+        return super.onPrepareOptionsPanel(view, menu);
     }
 
 }

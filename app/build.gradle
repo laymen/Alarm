@@ -89,6 +89,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.6.2'
     compile files('libs/achartengine-1.1.0.jar')
     compile files('libs/androidAP.jar')
+    compile 'com.yalantis:contextmenu:1.0.7'
 }
 
 // The location of the HP Fortify sourceanalyzer tool needs to be added to the PATH variable

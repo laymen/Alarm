@@ -30,7 +30,7 @@ public class SharePreferencesUtils {
         if (preferences==null){
             preferences=c.getSharedPreferences(fileName,c.MODE_WORLD_READABLE);
         }
-        SharedPreferences.Editor editor=preferences.edit().putLong(key,value);
+        SharedPreferences.Editor editor=preferences.edit().putLong(key, value);
         editor.commit();
     }
 
@@ -38,8 +38,38 @@ public class SharePreferencesUtils {
         if (preferences==null){
             preferences=c.getSharedPreferences(fileName,c.MODE_WORLD_READABLE);
         }
-        return preferences.getLong(key,value);
+        return preferences.getLong(key, value);
 
+    }
+
+    public static void putInt(Context c,String key,int value){
+        if (preferences==null){
+            preferences=c.getSharedPreferences(fileName,c.MODE_WORLD_READABLE);
+        }
+        SharedPreferences.Editor editor=preferences.edit().putInt(key, value);
+        editor.commit();
+    }
+
+    public static  int getInt(Context c,String key,int value){
+        if (preferences==null){
+            preferences=c.getSharedPreferences(fileName,c.MODE_WORLD_READABLE);
+        }
+        return preferences.getInt(key, value);
+    }
+
+    public static void putString(Context c,String key,String value){
+        if (preferences==null){
+            preferences=c.getSharedPreferences(fileName,c.MODE_WORLD_READABLE);
+        }
+        SharedPreferences.Editor editor=preferences.edit().putString(key, value);
+        editor.commit();
+    }
+
+    public static  String getString(Context c,String key,String value){
+        if (preferences==null){
+            preferences=c.getSharedPreferences(fileName,c.MODE_WORLD_READABLE);
+        }
+        return preferences.getString(key, value);
     }
 
 

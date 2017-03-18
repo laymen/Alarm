@@ -49,7 +49,6 @@
         android:theme="@style/AppTheme">
 
         <!-- 打地鼠开始 -->
-
         <meta-data
             android:name="cooId"
             android:value="4f6acaeec0b340f88f56c8e475f203dc" />

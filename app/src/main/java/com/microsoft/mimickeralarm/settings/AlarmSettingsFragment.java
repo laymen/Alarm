@@ -48,7 +48,6 @@ import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -216,10 +215,10 @@ public class AlarmSettingsFragment extends PreferenceFragmentCompat {
                 mAlarm.setmSaEnabled(true);
             }
         }
-        for(int i=0;i<7;i++){
-            Log.i("AlarmSettingFragment星期"+i,mAlarm.getRepeatingDay(i)+"");
-
-        }
+//        for(int i=0;i<7;i++){
+//            Log.i("AlarmSettingFragment星期"+i,mAlarm.getRepeatingDay(i)+"");
+//
+//        }
         mRepeatDaysPreference.setRepeatDayInitialValues(mAlarm);
         if (enabledRepeatValues==null){
             mRepeatDaysPreference.setRepeatDayInitialSummary();
