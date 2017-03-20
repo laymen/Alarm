@@ -98,7 +98,7 @@ public final class MimicFactory {
         if (day == alarmDate && alarmTime.getMonth() + 1 == month) {//判断是否是当天
             if (!SharePreferencesUtils.getBoolean(caller, "flag", false)) {
                 // SharePreferencesUtils.putLong(caller, "tempTime", time);//闹钟第一次响起时我存进数据库
-                Toast.makeText(caller, "=======>", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(caller, "=======>", Toast.LENGTH_SHORT).show();
                 SharePreferencesUtils.putLong(caller, "tempTime", time);//把闹钟关闭的时间存入数据库中
                 SharePreferencesUtils.putLong(caller, "endmillis", endMillis);//目的是不让插入SQlite数据库中
                 Weeks weeks = new Weeks();

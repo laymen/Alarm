@@ -26,6 +26,8 @@ android {
         ndk {
             abiFilters "x86"
         }
+
+        useLibrary 'org.apache.http.legacy'
     }
 
 

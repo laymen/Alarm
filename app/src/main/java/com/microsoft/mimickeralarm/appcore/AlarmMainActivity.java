@@ -35,12 +35,17 @@
 
 package com.microsoft.mimickeralarm.appcore;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.media.AudioManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.view.menu.MenuBuilder;
@@ -51,7 +56,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
 import com.microsoft.mimickeralarm.R;
 import com.microsoft.mimickeralarm.model.Alarm;
 import com.microsoft.mimickeralarm.onboarding.OnboardingToSFragment;
@@ -61,6 +72,7 @@ import com.microsoft.mimickeralarm.scheduling.AlarmScheduler;
 import com.microsoft.mimickeralarm.settings.AlarmSettingsFragment;
 import com.microsoft.mimickeralarm.settings.MimicsSettingsFragment;
 import com.microsoft.mimickeralarm.settings.RepeatDaySettingFragment;
+import com.microsoft.mimickeralarm.utilities.FindWeather;
 import com.microsoft.mimickeralarm.utilities.GeneralUtilities;
 import com.microsoft.mimickeralarm.utilities.Loggable;
 import com.microsoft.mimickeralarm.utilities.Logger;
@@ -69,8 +81,16 @@ import com.microsoft.mimickeralarm.utilities.SharePreferencesUtils;
 
 import net.hockeyapp.android.FeedbackManager;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONObject;
+
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -124,10 +144,34 @@ public class AlarmMainActivity extends AppCompatActivity
     //记录按返回键的时间
     //private long downTime = 0;
 
+    /*获取位置*/
+    public LocationClient mLocationClient;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
+
+        //获取位置的代码
+        mLocationClient = new LocationClient(getApplicationContext());
+        mLocationClient.registerLocationListener(new MyLocationListener());
+        List<String> permissionList = new ArrayList<>();
+        if (ContextCompat.checkSelfPermission(AlarmMainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.ACCESS_FINE_LOCATION);
+        }
+        if (ContextCompat.checkSelfPermission(AlarmMainActivity.this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.READ_PHONE_STATE);
+        }
+        if (ContextCompat.checkSelfPermission(AlarmMainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        }
+        if (!permissionList.isEmpty()) {
+            String[] permissions = permissionList.toArray(new String[permissionList.size()]);
+            ActivityCompat.requestPermissions(AlarmMainActivity.this, permissions, 1);
+        } else {
+            requestLocation();
+        }
+
 
         String packageName = getApplicationContext().getPackageName();//创建SharePreference数据库
         mPreferences = getSharedPreferences(packageName, MODE_PRIVATE);
@@ -144,9 +188,93 @@ public class AlarmMainActivity extends AppCompatActivity
             showAlarmSettingsFragment(alarmId.toString());//如果该闹钟存在，那么它可以跳转到SettingFragment中
         }
 
-
         Logger.init(this);
     }
+
+    /**
+     * 位置相关的代码
+     */
+    private void requestLocation() {
+        initLocation();
+        mLocationClient.start();
+    }
+
+    private void initLocation() {
+        LocationClientOption option = new LocationClientOption();
+        //  option.setScanSpan(5000);
+//        option.setLocationMode(LocationClientOption.LocationMode.Device_Sensors);
+        option.setIsNeedAddress(true);
+        mLocationClient.setLocOption(option);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case 1:
+                if (grantResults.length > 0) {
+                    for (int result : grantResults) {
+                        if (result != PackageManager.PERMISSION_GRANTED) {
+                            Toast.makeText(this, "必须同意所有权限才能使用本程序", Toast.LENGTH_SHORT).show();
+                            finish();
+                            return;
+                        }
+                    }
+                } else {
+                    Toast.makeText(this, "发生未知错误", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+        }
+
+    }
+    StringBuffer sb=null;
+    public class MyLocationListener implements BDLocationListener {
+
+        @Override
+        public void onReceiveLocation(BDLocation bdLocation) {
+            //把定位的城市存在SharePreference数据库中
+            SharePreferencesUtils.putString(getApplication(), "city", bdLocation.getCity().toString());
+            Log.i("0000000000000------->", bdLocation.getCity().toString());
+           sb = new StringBuffer();
+            sb.append("http://v.juhe.cn/weather/index?");
+            sb.append("cityname=");
+            sb.append(bdLocation.getCity().toString());
+            sb.append("&&dtype=json&format=1&key=352a0eb5f65e2962945ddfbd925dbca4");
+            if (sb != null) {
+                HttpClient client = new DefaultHttpClient();
+                HttpGet get = new HttpGet(sb.toString());
+                try {
+                    HttpResponse resp = client.execute(get);
+                    //响应码
+                    int code = resp.getStatusLine().getStatusCode();
+                    if (code == 200) {
+                        String result =
+                                EntityUtils.toString(resp.getEntity());
+
+                        //拿到数据进行解析
+                        JSONObject jsonObject = new JSONObject(result);
+                        JSONObject result1 = jsonObject.getJSONObject("result");
+                        JSONObject sk = result1.getJSONObject("sk");
+                        JSONObject today = result1.getJSONObject("today");
+                        //拼接今天的天气
+//                        String todayShow = today.getString("temperature") + "," + today.getString("weather") + "," + sk.getString("wind_direction") + sk.getString("wind_strength");
+//                        Toast.makeText(getApplication(), todayShow, Toast.LENGTH_SHORT);
+                        SharePreferencesUtils.putString(getApplication(), "temperature", today.getString("temperature"));
+                        SharePreferencesUtils.putString(getApplication(), "weather", FindWeather.getKeyWord(today.getString("weather")) );
+                        //Log.i("0000000000000-333---->",todayShow);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        @Override
+        public void onConnectHotSpotMessage(String s, int i) {
+
+        }
+
+    }
+
 
 
     @Override
@@ -169,9 +297,9 @@ public class AlarmMainActivity extends AppCompatActivity
 
         //背景图变化
         FrameLayout frameLayout = (FrameLayout) findViewById(R.id.fragment_container);
-        if (SharePreferencesUtils.getInt(this,"ThemeId",0)==0) {
+        if (SharePreferencesUtils.getInt(this, "ThemeId", 0) == 0) {
             frameLayout.setBackgroundResource(R.color.dark);
-        } else if (SharePreferencesUtils.getInt(this,"ThemeId",0)==1) {
+        } else if (SharePreferencesUtils.getInt(this, "ThemeId", 0) == 1) {
             frameLayout.setBackgroundResource(R.color.green1);
 
         }
@@ -192,7 +320,6 @@ public class AlarmMainActivity extends AppCompatActivity
                     AlarmListFragment.ALARM_LIST_FRAGMENT_TAG);
         }
 
-      //  onCreate(null);
     }
 
     @Override
@@ -203,6 +330,7 @@ public class AlarmMainActivity extends AppCompatActivity
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        mLocationClient.stop();
         FeedbackManager.unregister();
         Logger.flush();
     }
@@ -409,5 +537,6 @@ public class AlarmMainActivity extends AppCompatActivity
         }
         return super.onPrepareOptionsPanel(view, menu);
     }
+
 
 }

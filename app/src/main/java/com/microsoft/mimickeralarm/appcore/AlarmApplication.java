@@ -55,4 +55,5 @@ public class AlarmApplication extends Application {
         AlarmApplication.sContext = getApplicationContext();
     }
 
+
 }

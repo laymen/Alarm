@@ -53,6 +53,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -135,10 +136,31 @@ public class AlarmListFragment extends Fragment implements
                 .findViewById(R.id.alarm_recycler_view);
         mAlarmRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),
                 DividerItemDecoration.VERTICAL_LIST));
+        ImageView positionIcon=(ImageView)view.findViewById(R.id.position_icon);
+        positionIcon.setImageResource(R.drawable.ic_place_black_24dp);
+
+        TextView city=(TextView)view.findViewById(R.id.city);
+        city.setText(SharePreferencesUtils.getString(getActivity(),"city","苏州"));
+
+        ImageView weatherIcon=(ImageView)view.findViewById(R.id.weather_icon);
+        TextView textTemperature=(TextView)view.findViewById(R.id.temperature);
+        if (SharePreferencesUtils.getString(getActivity(),"weather","").equals("雪")){
+            weatherIcon.setImageResource(R.drawable.ic_ac_unit_black_24dp);
+        }else if(SharePreferencesUtils.getString(getActivity(),"weather","").equals("雨")){
+            weatherIcon.setImageResource(R.drawable.ic_beach_access_black_24dp);
+        }else if(SharePreferencesUtils.getString(getActivity(),"weather","").equals("阴")||SharePreferencesUtils.getString(getActivity(),"weather","").equals("云")){
+            weatherIcon.setImageResource(R.drawable.ic_cloud_black_24dp);
+        }else if(SharePreferencesUtils.getString(getActivity(),"weather","").equals("晴")){
+            weatherIcon.setImageResource(R.drawable.ic_flare_black_24dp);
+        }else{
+            weatherIcon.setVisibility(View.INVISIBLE);
+        }
+        textTemperature.setText(SharePreferencesUtils.getString(getActivity(),"temperature",""));
 
         toolbar = (Toolbar) view
                 .findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.alarm_list_title);
+        toolbar.setTitle("闹钟");
+        toolbar.setLogo(R.mipmap.ic_access_alarm_black_24dp);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
 
@@ -201,8 +223,10 @@ public class AlarmListFragment extends Fragment implements
         inflater.inflate(R.menu.menu_alarm_list, menu);
         MenuItem add = menu.findItem(R.id.action_add_alarm);
         add.setVisible(mShowAddButtonInToolbar);
+
         MenuItem change=menu.findItem(R.id.action_face);
-        change.setTitle(SharePreferencesUtils.getString(getActivity(), "theme", "白天模式"));
+        change.setTitle(SharePreferencesUtils.getString(getActivity(), "theme", "夜间模式"));
+//        SharePreferencesUtils.putString(getActivity(), "theme", "白天模式");
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -219,14 +243,14 @@ public class AlarmListFragment extends Fragment implements
             launchChildActivity(UserHobitsActivity.class);
             return true;
         } else if (id == R.id.action_face) {//白天模式 +夜间模式
-            if (SharePreferencesUtils.getString(getActivity(), "theme", "白天模式").equals("白天模式")) {//白天模式
-                SharePreferencesUtils.putInt(getActivity(), "ThemeId", 0);
-                SharePreferencesUtils.putString(getActivity(), "theme", "夜间模式");
-                item.setTitle(SharePreferencesUtils.getString(getActivity(), "theme", "夜间模式"));//用户点完后设置成夜间模式--是给用户看的
-            } else {//如果是夜间
+            if (SharePreferencesUtils.getString(getActivity(), "theme", "夜间模式").equals("夜间模式")) {//白天模式
                 SharePreferencesUtils.putInt(getActivity(), "ThemeId", 1);
                 SharePreferencesUtils.putString(getActivity(), "theme", "白天模式");
                 item.setTitle(SharePreferencesUtils.getString(getActivity(), "theme", "白天模式"));//用户点完后设置成夜间模式
+            } else {//如果是夜间
+                SharePreferencesUtils.putInt(getActivity(), "ThemeId", 0);
+                SharePreferencesUtils.putString(getActivity(), "theme", "夜间模式");
+                item.setTitle(SharePreferencesUtils.getString(getActivity(), "theme", "夜间模式"));//用户点完后设置成夜间模式--是给用户看的
             }
             launchChildActivity(AlarmMainActivity.class);
             getActivity().finish();

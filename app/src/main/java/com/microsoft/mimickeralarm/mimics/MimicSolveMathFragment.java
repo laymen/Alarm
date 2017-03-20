@@ -62,7 +62,7 @@ public class MimicSolveMathFragment extends Fragment implements IMimicImplementa
         mStateManagerNormal.registerStateBannerNormal((MimicStateBanner) view.findViewById(R.id.mimic_state));
         mStateManagerNormal.registerMimicNormal(this);
 
-        tip_text.setText("完成下面的数学题取消闹钟，还剩" + times + "道题！");
+        tip_text.setText("完成下面"+times+"道数学题取消闹钟");
         tv_nums = (TextView) view.findViewById(R.id.tv_nums);
         showNextNumber();//开始产生随机数
 
@@ -125,7 +125,7 @@ public class MimicSolveMathFragment extends Fragment implements IMimicImplementa
                             }
                         }
                         showNextNumber();
-                        tip_text.setText("完成下面的数学题取消闹钟，还剩" + times + "道题！");
+                        tip_text.setText("完成下面"+times+"道数学题取消闹钟");
                         break;
 
                 }

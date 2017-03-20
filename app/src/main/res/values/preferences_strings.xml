@@ -122,9 +122,9 @@
     </string-array>
 
     <string name="pref_mimic_color_capture_label">捕获颜色</string>
-    <string name="pref_mimic_express_yourself_label">表达自己</string>
+    <string name="pref_mimic_express_yourself_label">模拟情绪</string>
     <string name="pref_mimic_tongue_twister_label">说绕口令</string>
-    <string name="pref_mimic_shake_phone_label">摇晃手机</string>
+    <string name="pref_mimic_shake_phone_label">摇一摇</string>
     <string name="pref_mimic_solve_mathematics_label">解数学题</string>
     <string name="pref_mimic_hit_game_label">打地鼠</string>
 
@@ -166,12 +166,12 @@
     </string-array>
     <!-- mouse补充完 -->
 
-    <string name="pref_mimic_color_capture_summary">颜色匹配</string>
-    <string name="pref_mimic_express_yourself_summary">表情匹配</string>
-    <string name="pref_mimic_tongue_twister_summary">请说句子</string>
-    <string name="pref_mimic_shake_your_phone_sumary">摇一摇</string>
-    <string name="pref_mimic_solve_mathematics_sumary">解数学加减乘题</string>
-    <string name="pref_mimic_hit_game_summary">成功打到十个地鼠</string>
+    <string name="pref_mimic_color_capture_summary">根据提示找到相匹配的颜色</string>
+    <string name="pref_mimic_express_yourself_summary">根据提示模拟出相应的表情</string>
+    <string name="pref_mimic_tongue_twister_summary">说出提示中的绕口令或者段子</string>
+    <string name="pref_mimic_shake_your_phone_sumary">用一定的力度摇晃手机，会有奇迹出现哟！</string>
+    <string name="pref_mimic_solve_mathematics_sumary">三年级的算术题3道，注意时间哦！</string>
+    <string name="pref_mimic_hit_game_summary">成功打掉十个地鼠，你一定可以的！</string>
 
 
     <string name="pref_mimic_not_supported">你的手机不支持这个游戏</string>

@@ -23,7 +23,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:background="@drawable/abc_btn_borderless_material"
-            android:textColor="@color/blue"
+            android:textColor="@color/yellow4"
             android:visibility="gone"
             style="@style/Font.Body"
             android:textAppearance="?android:attr/textAppearanceButton"

@@ -31,8 +31,8 @@
     <item
         android:id="@+id/action_face"
         android:orderInCategory="103"
-        android:icon="@drawable/ic_face_black_24dp"
-        android:title="白天模式" />
+        android:icon="@drawable/ic_tonality_black_24dp"
+        android:title="夜间模式" />
 
     <item
         android:id="@+id/action_add_alarm"

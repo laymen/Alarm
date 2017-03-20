@@ -57,11 +57,12 @@
                 android:gravity="center_vertical|center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:layout_marginLeft="50dp"/>
             <!-- 答案的输入框-->
             <EditText
                 android:id="@+id/et_result"
-                android:layout_width="match_parent"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/tv_nums" />
         </LinearLayout>

@@ -21,11 +21,4 @@
         android:entryValues="@array/pref_snooze_duration_values"
         android:key="@string/pref_snooze_duration_key"
         android:title="@string/pref_title_snooze_duration" />
-    <ListPreference
-        android:defaultValue="@string/pref_defalt_face_value"
-        android:entries="@array/pref_face_choose_labels"
-        android:entryValues="@array/pref_face_choose_values"
-        android:key="@string/pref_face_key"
-        android:title="@string/pref_title_face"
-        />
 </PreferenceScreen>

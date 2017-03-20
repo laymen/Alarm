@@ -137,6 +137,7 @@
     <orderEntry type="library" exported="" name="icu4j-56.1" level="project" />
     <orderEntry type="library" exported="" name="support-core-utils-25.0.0" level="project" />
     <orderEntry type="library" exported="" name="androidts" level="project" />
+    <orderEntry type="library" exported="" name="BaiduLBS_Android" level="project" />
     <orderEntry type="library" exported="" name="emotion-1.0.355" level="project" />
     <orderEntry type="library" exported="" name="contextmenu-1.0.7" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-25.0.0" level="project" />
@@ -158,5 +159,6 @@
     <orderEntry type="library" exported="" name="support-vector-drawable-25.0.0" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-v7-25.0.0" level="project" />
     <orderEntry type="library" exported="" name="org.apache.commons.io-2.4" level="project" />
+    <orderEntry type="library" exported="" name="org.apache.http.legacy-android-25" level="project" />
   </component>
 </module>

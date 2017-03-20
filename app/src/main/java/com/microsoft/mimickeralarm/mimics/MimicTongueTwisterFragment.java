@@ -90,7 +90,7 @@ public class MimicTongueTwisterFragment extends Fragment
         implements ISpeechRecognitionServerEvents,
         IMimicImplementation {
     private final static int TIMEOUT_MILLISECONDS = 20000;
-    private final static float DIFFERENCE_SUCCESS_THRESHOLD = 0.5f;
+    private final static float DIFFERENCE_SUCCESS_THRESHOLD = 0.3f;
     private final static float DIFFERENCE_PERFECT_THRESHOLD = 0.1f;
     private static String LOGTAG = "MimicTongueTwisterFragment";
     MimicResultListener mCallback;//来自MiciFactory
