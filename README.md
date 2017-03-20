@@ -1,7 +1,7 @@
 # Alram 
 ## 1 主界面
 [闹钟首页](https://github.com/laymen/Alarm/blob/master/screen/1.jpg)
-![图片名](__SCREEN__/1.jpg)
+![图片名](SCREEN/1.jpg)
 ![Screen show](https://github.com/laymen/Game/blob/master/screen/1.jpg)
 ## 2 全局设置
 ！[全局设置界面1](https://github.com/laymen/Alarm/blob/master/screen/10.jpg)
